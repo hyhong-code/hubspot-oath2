@@ -1,0 +1,15 @@
+doctype html
+html(lang="en")
+  head
+    title Getting Started with hubspot oauth
+  body
+    h1 Getting Started with hubspot oauth
+    if token
+      p You are authenticated with token: #{token}
+      p Your accounts has these cool contacts:
+      ul
+        each contact in contacts
+          li #{contact.properties.firstname.value} #{contact.properties.lastname.value}
+    else
+      p You are not authenticated
+      p Please install me #[a(href=`${authUrl}`) here]
